@@ -90,3 +90,7 @@
               (setq result (list* (car each) (replace-<>-or-insert-last (cdr each) result)))
               (setq result (list each result)))
         finally (return result))))
+
+(defmacro <<- (expr &rest exprs)
+  `(->> ,@(reverse exprs) ,expr)
+  )
