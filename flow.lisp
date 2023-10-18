@@ -92,5 +92,14 @@
         finally (return result))))
 
 (defmacro <<- (expr &rest exprs)
+  "backward, insert last"
   `(->> ,@(reverse exprs) ,expr)
   )
+
+(defmacro <>- (expr &rest exprs)
+  "backward -<>, insert first"
+  `(-<> ,@(reverse exprs) ,expr))
+
+(defmacro <<>- (expr &rest exprs)
+  "backward -<>>, insert last"
+  `(-<>> ,@(reverse exprs) ,expr))
